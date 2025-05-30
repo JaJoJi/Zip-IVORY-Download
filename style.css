@@ -1,0 +1,131 @@
+body {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #1e1e1e;
+  color: #eee;
+  margin: 0;
+  padding: 20px;
+  user-select: none;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  text-align: center;
+  border: 3px solid #f5c542;
+  border-radius: 10px;
+  padding: 20px;
+  background: linear-gradient(145deg, #272727, #1a1a1a);
+  box-shadow: 0 0 15px #f5c542aa;
+}
+
+.logo {
+  width: 120px;
+  margin-bottom: 15px;
+  image-rendering: pixelated;
+}
+
+h1, .description {
+  margin: 0 0 15px 0;
+}
+
+.description {
+  font-style: italic;
+  color: #bbb;
+  font-size: 1.1rem;
+}
+
+#zipName {
+  font-weight: bold;
+  font-size: 1.4rem;
+  color: #f5c542;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.zip-info {
+  text-align: left;
+  margin: 10px 0 20px 0;
+  font-size: 0.9rem;
+  color: #ddd;
+  background-color: #222;
+  padding: 10px 15px;
+  border-radius: 6px;
+  box-shadow: inset 0 0 5px #000;
+  font-family: 'Courier New', monospace;
+}
+
+.zip-info p {
+  margin: 4px 0;
+}
+
+.download-button {
+  display: inline-block;
+  background-color: #f5c542;
+  color: #1e1e1e;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+  user-select: none;
+  box-shadow: 0 0 8px #f5c542aa;
+  transition: background-color 0.2s ease;
+}
+
+.download-button:disabled,
+.download-button[disabled] {
+  background-color: #555;
+  color: #999;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.download-button:not(:disabled):hover {
+  background-color: #f7db57;
+}
+
+.file-tree {
+  text-align: left;
+  font-size: 0.95rem;
+  color: #eee;
+  font-family: 'Courier New', monospace;
+  user-select: text;
+  border-top: 1px solid #444;
+  padding-top: 10px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.file-tree ul {
+  list-style-type: none;
+  padding-left: 20px;
+  transition: all 0.2s ease-in-out;
+}
+
+.file-tree li {
+  margin: 3px 0;
+  cursor: default;
+  line-height: 1.3;
+}
+
+.file-tree .file::before {
+  content: "📄 ";
+  margin-right: 5px;
+  color: #fff176;
+}
+
+.file-tree .folder > span::before {
+  content: "📁 ";
+  margin-right: 5px;
+  color: #4fc3f7;
+  user-select: none;
+}
+
+.folder > span {
+  font-weight: bold;
+  color: #4fc3f7;
+  cursor: pointer;
+}
+
+.collapsed {
+  display: none;
+}

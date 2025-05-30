@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>IVORY - ZIP Explorer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <img src="logo.png" alt="Logo" class="logo">
+    <p class="description">Auto-loaded ZIP Explorer with download.</p>
+
+    <p><strong>ZIP File:</strong> <span id="zipName">Loading...</span></p>
+    <a id="downloadBtn" href="archive.zip" download class="download-button" disabled>Download ZIP</a>
+
+    <div id="fileTree" class="file-tree"></div>
+  </div>
+
+  <!-- JSZip -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
