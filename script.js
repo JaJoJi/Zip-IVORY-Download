@@ -1,8 +1,7 @@
 const zipNameSpan = document.getElementById('zipName');
 const fileTree = document.getElementById('fileTree');
 const downloadBtn = document.getElementById('downloadBtn');
-
-const zipFilePath = "./" + "__zipFilePath__";
+  
 const loadingDiv = document.getElementById('loading'); 
 
 
@@ -11,6 +10,11 @@ async function loadZipStructure() {
     loadingDiv.style.display = 'block';
     downloadBtn.setAttribute('disabled', '');
 
+    const configResponse = await fetch('./config.json');
+    const config = await configResponse.json();
+    const zipFilePath = config.zipFilePath;
+
+    console.log(zipFilePath);
     const response = await fetch(zipFilePath);
     if (!response.ok) throw new Error('Failed to fetch ZIP');
 
