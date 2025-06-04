@@ -2,11 +2,13 @@ const zipNameSpan = document.getElementById('zipName');
 const fileTree = document.getElementById('fileTree');
 const downloadBtn = document.getElementById('downloadBtn');
 
-const zipFilePath = './archive.zip ';
+const zipFilePath = "./" + "__zipFilePath__";
+const loadingDiv = document.getElementById('loading'); 
 
 
 async function loadZipStructure() {
   try {
+    loadingDiv.style.display = 'block';
     downloadBtn.setAttribute('disabled', '');
 
     const response = await fetch(zipFilePath);
@@ -76,11 +78,15 @@ async function loadZipStructure() {
     });
 
     fileTree.innerHTML = '';
+    loadingDiv.style.display = 'none';
     fileTree.appendChild(buildTree(root));
+    downloadBtn.href = zipFilePath;
+    downloadBtn.download = fileName;
   } catch (err) {
     zipNameSpan.textContent = 'Error loading ZIP.';
     fileTree.innerHTML = '<p style="color:red">Could not load ZIP file.</p>';
     downloadBtn.setAttribute('disabled', '');
+    loadingDiv.style.display = 'none';
     console.error(err);
   }
 }
